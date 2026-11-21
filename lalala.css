@@ -1,0 +1,89 @@
+:root {
+  --bg: #f4f8f3; --card: #ffffff; --text: #1f2a1f; --muted: #5b6b5b;
+  --primary: #2e7d32; --primary-text: #ffffff; --border: #d5e2d3;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    color-scheme: dark;
+    --bg: #121a12; --card: #1b261b; --text: #e8f0e8; --muted: #9fb09f;
+    --primary: #66bb6a; --primary-text: #0f1a0f; --border: #2c3d2c;
+  }
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  background: var(--bg); color: var(--text); line-height: 1.6;
+}
+header { background: var(--primary); color: var(--primary-text); text-align: center; padding: 28px 16px; }
+header h1 { margin: 0 0 4px; font-size: 1.9rem; }
+header p { margin: 0; opacity: .9; }
+
+/* Abas (CSS puro, com radio) */
+.tab-radio { position: absolute; opacity: 0; pointer-events: none; }
+.tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 8px; padding: 16px; }
+.tabs label {
+  padding: 10px 20px; border: 1px solid var(--border); border-radius: 999px;
+  background: var(--card); cursor: pointer; font-weight: 600;
+}
+#t1:checked ~ .tabs label[for="t1"],
+#t2:checked ~ .tabs label[for="t2"],
+#t3:checked ~ .tabs label[for="t3"],
+#t4:checked ~ .tabs label[for="t4"] {
+  background: var(--primary); color: var(--primary-text); border-color: var(--primary);
+}
+.tab-radio:focus-visible ~ .tabs { outline: 2px solid var(--primary); }
+
+main { max-width: 960px; margin: 0 auto; padding: 0 16px 32px; }
+.panel { display: none; }
+#t1:checked ~ main #p1,
+#t2:checked ~ main #p2,
+#t3:checked ~ main #p3,
+#t4:checked ~ main #p4 { display: block; }
+
+h2 { color: var(--primary); margin-top: 0; }
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 12px; padding: 20px; flex: 1 1 260px;
+}
+.card h3 { margin-top: 0; }
+
+/* Flexbox */
+.row { display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 16px; }
+.dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; margin-right: 6px; }
+.verde { background: #2e7d32; } .azul { background: #1976d2; }
+.amarelo { background: #f9a825; } .marrom { background: #795548; }
+
+.tabela { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: var(--card); }
+th, td { padding: 12px; text-align: left; border-bottom: 1px solid var(--border); }
+th { background: var(--primary); color: var(--primary-text); }
+
+/* Formulário */
+form { display: flex; flex-direction: column; gap: 14px; max-width: 560px; }
+label.campo { display: flex; flex-direction: column; gap: 4px; font-weight: 600; }
+input, select, textarea {
+  font: inherit; padding: 10px; border: 1px solid var(--border); border-radius: 8px;
+  background: var(--card); color: var(--text);
+}
+button {
+  font: inherit; font-weight: 700; padding: 12px; border: 0; border-radius: 8px;
+  background: var(--primary); color: var(--primary-text); cursor: pointer;
+}
+button:hover { filter: brightness(1.1); }
+
+footer { text-align: center; padding: 20px 16px; color: var(--muted); border-top: 1px solid var(--border); }
+
+/* Media queries */
+@media (max-width: 600px) {
+  header h1 { font-size: 1.4rem; }
+  .tabs label { padding: 8px 14px; font-size: .9rem; }
+  .row { flex-direction: column; }
+}
+@media (min-width: 900px) {
+  header { padding: 44px 16px; }
+  header h1 { font-size: 2.4rem; }
+}

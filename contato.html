@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Contato – Coleta de Lixo Capanema</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+  <h1>♻️ Coleta de Lixo – Capanema</h1>
+  <p>Cidade limpa é responsabilidade de todos</p>
+</header>
+
+<nav class="tabs" aria-label="Menu">
+  <a href="index.html">Início</a>
+  <a href="horarios.html">Horários</a>
+  <a href="coleta-seletiva.html">Coleta Seletiva</a>
+  <a href="contato.html" class="ativo">Contato</a>
+</nav>
+
+<main>
+  <h2>Contato</h2>
+  <form action="mailto:prefeitura@exemplo.com" method="post" enctype="text/plain">
+    <label class="campo">Nome
+      <input type="text" name="nome" required placeholder="Seu nome">
+    </label>
+    <label class="campo">E-mail
+      <input type="email" name="email" required placeholder="voce@email.com">
+    </label>
+    <label class="campo">Bairro
+      <input type="text" name="bairro" required placeholder="Onde você mora">
+    </label>
+    <label class="campo">Assunto
+      <select name="assunto">
+        <option>Coleta não passou</option>
+        <option>Lixo acumulado</option>
+        <option>Sugestão</option>
+        <option>Outro</option>
+      </select>
+    </label>
+    <label class="campo">Mensagem
+      <textarea name="mensagem" rows="4" required></textarea>
+    </label>
+    <button type="submit">Enviar</button>
+  </form>
+</main>
+
+<footer>© 2026 Coleta de Lixo – Capanema · Projeto de exemplo</footer>
+
+</body>
+</html>
